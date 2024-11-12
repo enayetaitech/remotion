@@ -2,17 +2,6 @@ import React from 'react';
 import {Composition, getInputProps} from 'remotion';
 import {MyComposition} from './Composition';
 
-// interface InputProps {
-//   duration: number;
-//   fps: number;
-//   size: {
-//     width: number;
-//     height: number;
-//   };
-//   trackItemIds: string[];
-//   trackItemsMap: Record<string, any>;
-//   tracks: any[];
-// }
 
 export const RemotionRoot: React.FC = () => {
   const props = getInputProps();
@@ -28,7 +17,7 @@ export const RemotionRoot: React.FC = () => {
         fps={props.fps}
         width={props.size.width}
         height={props.size.height}
-        defaultProps={{
+        inputProps={{
           trackItemIds: props.trackItemIds,
           trackItemsMap: props.trackItemsMap,
           tracks: props.tracks,

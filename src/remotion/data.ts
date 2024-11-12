@@ -1,50 +1,88 @@
-export const data = {
+export const data ={
   "trackItemIds": [
-    "item1F4rQYWejPi3KNMmVVw4O",
-    "itemRXcMiu3KVL-UWkzFC2Fvb",
-    "itemeIrD0TIDxxtiPRsNiHW-0",
-    "itemHN5u-_ccgHzcP69nwJmgg"
+    "itemU59FIgp_S1oaV9_iWg09i",
+    "itemu_Sgcg-uZk23bkYsp-hh6",
+    "itemFKVIgzWV9-T8i8Od36Dr2",
+    "itemLfm3qOEZI4ow9RuxspsRI",
+    "itemtwJKo9eaTrf4tg630VVo5"
   ],
   "trackItemsMap": {
-    "itemeIrD0TIDxxtiPRsNiHW-0": {
-      "id": "itemeIrD0TIDxxtiPRsNiHW-0",
+    "itemU59FIgp_S1oaV9_iWg09i": {
+      "id": "itemU59FIgp_S1oaV9_iWg09i",
+      "name": "",
+      "type": "text",
+      "display": {
+        "from": 0,
+        "to": 5000
+      },
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 120,
+        "fontWeight": "normal",
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": "Heading",
+        "opacity": 100,
+        "width": 600,
+        "wordWrap": "break-word",
+        "wordBreak": "break-all",
+        "WebkitTextStrokeColor": "#ffffff",
+        "WebkitTextStrokeWidth": "0px",
+        "top": "468.2845px",
+        "left": "660px",
+        "height": 143.431,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf"
+      },
+      "metadata": {},
+      "isMain": false
+    },
+    "itemu_Sgcg-uZk23bkYsp-hh6": {
+      "id": "itemu_Sgcg-uZk23bkYsp-hh6",
       "name": "",
       "type": "video",
       "display": {
         "from": 0,
-        "to": 15720
+        "to": 8596.667
       },
       "trim": {
         "from": 0,
-        "to": 15720
+        "to": 8596.667
       },
       "details": {
-        "src": "https://ik.imagekit.io/wombo/videos/vid5.mp4",
+        "src": "https://ik.imagekit.io/wombo/videos/vid2.mp4",
         "preview": "",
-        "width": 720,
-        "height": 1280,
-        "duration": 15720,
+        "width": 1280,
+        "height": 720,
+        "duration": 8596.667,
         "opacity": 100,
         "volume": 100,
-        "transform": "scale(0.84375)",
+        "transform": "scale(1.5)",
         "border": "none",
         "borderRadius": "0",
         "boxShadow": "none",
-        "top": "-100px",
-        "left": "600px"
+        "top": "180px",
+        "left": "320px"
       },
       "metadata": {
-        "resourceId": "https://ik.imagekit.io/wombo/videos/vid5.mp4"
+        "resourceId": "https://ik.imagekit.io/wombo/videos/vid2.mp4"
       },
       "isMain": true
     },
-    "itemRXcMiu3KVL-UWkzFC2Fvb": {
-      "id": "itemRXcMiu3KVL-UWkzFC2Fvb",
+    "itemFKVIgzWV9-T8i8Od36Dr2": {
+      "id": "itemFKVIgzWV9-T8i8Od36Dr2",
       "name": "",
       "type": "video",
       "display": {
-        "from": 15720,
-        "to": 35737
+        "from": 8596.667,
+        "to": 28613.667
       },
       "trim": {
         "from": 0,
@@ -70,8 +108,8 @@ export const data = {
       },
       "isMain": true
     },
-    "itemHN5u-_ccgHzcP69nwJmgg": {
-      "id": "itemHN5u-_ccgHzcP69nwJmgg",
+    "itemLfm3qOEZI4ow9RuxspsRI": {
+      "id": "itemLfm3qOEZI4ow9RuxspsRI",
       "name": "",
       "type": "audio",
       "display": {
@@ -90,17 +128,17 @@ export const data = {
       "metadata": {},
       "isMain": false
     },
-    "item1F4rQYWejPi3KNMmVVw4O": {
-      "id": "item1F4rQYWejPi3KNMmVVw4O",
+    "itemtwJKo9eaTrf4tg630VVo5": {
+      "id": "itemtwJKo9eaTrf4tg630VVo5",
       "name": "",
       "type": "video",
       "display": {
-        "from": 35736.99999999999,
-        "to": 50596.99999999999
+        "from": 28613.667000000005,
+        "to": 49197.667
       },
       "trim": {
         "from": 0,
-        "to": 14860
+        "to": 20584
       },
       "details": {
         "src": "https://ik.imagekit.io/wombo/videos/vid1.mp4",
@@ -124,33 +162,32 @@ export const data = {
     }
   },
   "transitionIds": [
-    "itemeIrD0TIDxxtiPRsNiHW-0-itemRXcMiu3KVL-UWkzFC2Fvb",
-    "itemRXcMiu3KVL-UWkzFC2Fvb-item1F4rQYWejPi3KNMmVVw4O"
+    "itemu_Sgcg-uZk23bkYsp-hh6-itemFKVIgzWV9-T8i8Od36Dr2",
+    "itemFKVIgzWV9-T8i8Od36Dr2-itemtwJKo9eaTrf4tg630VVo5"
   ],
   "transitionsMap": {
-    "itemeIrD0TIDxxtiPRsNiHW-0-itemRXcMiu3KVL-UWkzFC2Fvb": {
-      "id": "itemeIrD0TIDxxtiPRsNiHW-0-itemRXcMiu3KVL-UWkzFC2Fvb",
+    "itemu_Sgcg-uZk23bkYsp-hh6-itemFKVIgzWV9-T8i8Od36Dr2": {
+      "id": "itemu_Sgcg-uZk23bkYsp-hh6-itemFKVIgzWV9-T8i8Od36Dr2",
       "duration": 1500,
-      "fromId": "itemeIrD0TIDxxtiPRsNiHW-0",
-      "toId": "itemRXcMiu3KVL-UWkzFC2Fvb",
-      "type": "slide",
-      "trackId": "main",
-      "direction": "from-bottom"
+      "fromId": "itemu_Sgcg-uZk23bkYsp-hh6",
+      "toId": "itemFKVIgzWV9-T8i8Od36Dr2",
+      "type": "fade",
+      "trackId": "main"
     },
-    "itemRXcMiu3KVL-UWkzFC2Fvb-item1F4rQYWejPi3KNMmVVw4O": {
-      "id": "itemRXcMiu3KVL-UWkzFC2Fvb-item1F4rQYWejPi3KNMmVVw4O",
+    "itemFKVIgzWV9-T8i8Od36Dr2-itemtwJKo9eaTrf4tg630VVo5": {
+      "id": "itemFKVIgzWV9-T8i8Od36Dr2-itemtwJKo9eaTrf4tg630VVo5",
       "duration": 1500,
-      "fromId": "itemRXcMiu3KVL-UWkzFC2Fvb",
-      "toId": "item1F4rQYWejPi3KNMmVVw4O",
+      "fromId": "itemFKVIgzWV9-T8i8Od36Dr2",
+      "toId": "itemtwJKo9eaTrf4tg630VVo5",
       "type": "fade",
       "trackId": "main"
     }
   },
   "tracks": [
     {
-      "id": "SrC2ryJmBWkw_24DVywwq",
+      "id": "5t9VzUMBPPeXJMV-H3Zbg",
       "items": [
-        "itemHN5u-_ccgHzcP69nwJmgg"
+        "itemLfm3qOEZI4ow9RuxspsRI"
       ],
       "type": "audio",
       "accepts": [
@@ -158,12 +195,22 @@ export const data = {
       ]
     },
     {
+      "id": "SZXL8pttWuIsRzldyzLrH",
+      "items": [
+        "itemU59FIgp_S1oaV9_iWg09i"
+      ],
+      "type": "text",
+      "accepts": [
+        "text"
+      ]
+    },
+    {
       "id": "main",
       "type": "main",
       "items": [
-        "itemeIrD0TIDxxtiPRsNiHW-0",
-        "itemRXcMiu3KVL-UWkzFC2Fvb",
-        "item1F4rQYWejPi3KNMmVVw4O"
+        "itemu_Sgcg-uZk23bkYsp-hh6",
+        "itemFKVIgzWV9-T8i8Od36Dr2",
+        "itemtwJKo9eaTrf4tg630VVo5"
       ],
       "accepts": [
         "video",
@@ -175,7 +222,7 @@ export const data = {
     "width": 1920,
     "height": 1080
   },
-  "duration": 49846.99999999999,
+  "duration": 49796.939,
   "fps": 30,
   "projectId": "main"
 }

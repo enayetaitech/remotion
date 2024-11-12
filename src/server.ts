@@ -4,7 +4,6 @@ import { getCompositions, renderMedia } from '@remotion/renderer';
 import path from 'path';
 import cors from 'cors';
 import fs from 'fs/promises';
-import { log } from 'console';
 
 const app = express();
 app.use(express.json());
@@ -84,7 +83,7 @@ async function renderVideo(jobId: string) {
         tracks: inputProps.tracks
       }
     });
-    console.log('Raw compositions:line 77', compositions);
+    console.log('Raw compositions:line 77', compositions[0].props.size);
     console.log('Type of compositions:line 78', typeof compositions);
     console.log('Is Array?:line 79', Array.isArray(compositions));
 
@@ -163,6 +162,8 @@ async function renderVideo(jobId: string) {
         });
       },
     });
+
+    
 
     const videoUrl = `/videos/${jobId}.mp4`;
     renderStatus.set(jobId, {
