@@ -4,6 +4,7 @@ import { getCompositions, renderMedia } from '@remotion/renderer';
 import path from 'path';
 import cors from 'cors';
 import fs from 'fs/promises';
+import { log } from 'console';
 
 const app = express();
 app.use(express.json());
@@ -24,11 +25,15 @@ const compositionDataMap = new Map<string, any>();
 
 app.post('/render-video', async (req, res) => {
   try {
+    // console.log('Received request to render video',req.body);
     const compositionData = req.body;
     const jobId = `job-${Date.now()}`;
     
     // Store the composition data
+
+    
     compositionDataMap.set(jobId, compositionData);
+    // console.log('compositionDataMap',compositionDataMap);
 
     // Update status to "processing"
     renderStatus.set(jobId, {
@@ -55,35 +60,59 @@ app.post('/render-video', async (req, res) => {
 
 app.get('/render-status/:jobId', (req, res) => {
   const { jobId } = req.params;
-  const status = renderStatus.get(jobId) || { status: 'not_found' };
+    const status = renderStatus.get(jobId) || { status: 'not_found' };
   res.json(status);
 });
-
+// render video function to finalize 
 async function renderVideo(jobId: string) {
   try {
     const inputProps = compositionDataMap.get(jobId);
-    
-    // Add validation
-    if (!inputProps) {
-      throw new Error('No composition data found for job');
-    }
 
     const bundled = await bundle(path.join(process.cwd(), './src/remotion/index.ts'));
-    const compositions = await getCompositions(bundled);
-    const composition = compositions.find((c) => c.id === 'MyVideo');
+    console.log('Bundle result:', {
+      bundleSuccess: !!bundled,
+      bundlePath: bundled
+    });
 
+    const compositions = await getCompositions(bundled, {
+      inputProps: {
+        duration: inputProps.duration,
+        fps: inputProps.fps,
+        size: inputProps.size,
+        trackItemIds: inputProps.trackItemIds,
+        trackItemsMap: inputProps.trackItemsMap,
+        tracks: inputProps.tracks
+      }
+    });
+    console.log('Raw compositions:line 77', compositions);
+    console.log('Type of compositions:line 78', typeof compositions);
+    console.log('Is Array?:line 79', Array.isArray(compositions));
+
+    if (Array.isArray(compositions) && compositions.length > 0) {
+        const firstComp = compositions[0];
+        console.log('First composition:', firstComp);
+        console.log('Properties of first composition:', Object.getOwnPropertyNames(firstComp));
+    }
+    
+    // Then let's see what properties are actually available
+    console.log('First composition keys:', Object.keys(compositions[0]));
+
+    const composition = compositions.find((c) => c.id === 'MyVideo');
+    console.log('Found MyVideo composition:', composition);
+    
     if (!composition) {
-      throw new Error('Composition not found');
+      throw new Error('Composition not found. Available compositions: ' + 
+        compositions.map(c => c.id).join(', '));
     }
 
     const outputPath = path.join(VIDEOS_DIR, `${jobId}.mp4`);
 
-    console.log('Duration:', inputProps.duration);
-    console.log('FPS:', inputProps.fps);
-    console.log('Calculated frames:', Math.round(inputProps.duration * inputProps.fps / 1000));
-
-    console.log('Complete inputProps:', JSON.stringify(inputProps, null, 2));
-    console.log('Input Props before render:', {
+    console.log('Duration:line 89', inputProps.duration);
+    console.log('FPS:line 90', inputProps.fps);
+    console.log('Calculated frames:line 91', Math.round(inputProps.duration * inputProps.fps / 1000));
+      
+    console.log('Complete inputProps:line 93', JSON.stringify(inputProps, null, 2));
+    console.log('Input Props before render:line 115', {
       trackItemIds: inputProps.trackItemIds,
       trackItemsMap: Object.keys(inputProps.trackItemsMap),
       tracks: JSON.stringify(inputProps.tracks, null, 2),
@@ -126,6 +155,7 @@ async function renderVideo(jobId: string) {
         duration: inputProps.duration,
         durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps)) // Convert ms to frames
       },
+      
       onProgress: ({ progress }) => {
         renderStatus.set(jobId, {
           status: 'processing',
