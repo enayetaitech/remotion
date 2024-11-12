@@ -136,7 +136,9 @@ async function renderVideo(jobId: string) {
         fps: inputProps.fps,
         size: inputProps.size,
         duration: inputProps.duration,
-        durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps))
+        durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps)),
+        transitionsMap: inputProps.transitionsMap,
+        transitionIds: inputProps.transitionIds
       }
     });
 
@@ -152,7 +154,9 @@ async function renderVideo(jobId: string) {
         fps: inputProps.fps,
         size: inputProps.size,
         duration: inputProps.duration,
-        durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps)) // Convert ms to frames
+        durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps)),
+        transitionsMap: inputProps.transitionsMap,
+        transitionIds: inputProps.transitionIds
       },
       
       onProgress: ({ progress }) => {

@@ -21,7 +21,8 @@ export const RemotionRoot: React.FC = () => {
           trackItemIds: props.trackItemIds,
           trackItemsMap: props.trackItemsMap,
           tracks: props.tracks,
-          fps: props.fps
+          fps: props.fps,
+          transitionsMap: props.transitionsMap
         }}
       />
     </>
