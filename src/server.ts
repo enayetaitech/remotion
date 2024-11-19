@@ -68,10 +68,10 @@ async function renderVideo(jobId: string) {
     const inputProps = compositionDataMap.get(jobId);
 
     const bundled = await bundle(path.join(process.cwd(), './src/remotion/index.ts'));
-    console.log('Bundle result:', {
-      bundleSuccess: !!bundled,
-      bundlePath: bundled
-    });
+    // console.log('Bundle result:', {
+    //   bundleSuccess: !!bundled,
+    //   bundlePath: bundled
+    // });
 
     const compositions = await getCompositions(bundled, {
       inputProps: {
@@ -83,21 +83,21 @@ async function renderVideo(jobId: string) {
         tracks: inputProps.tracks
       }
     });
-    console.log('Raw compositions:line 77', compositions[0].props.size);
-    console.log('Type of compositions:line 78', typeof compositions);
-    console.log('Is Array?:line 79', Array.isArray(compositions));
+    // console.log('Raw compositions:line 77', compositions[0].props.size);
+    // console.log('Type of compositions:line 78', typeof compositions);
+    // console.log('Is Array?:line 79', Array.isArray(compositions));
 
     if (Array.isArray(compositions) && compositions.length > 0) {
         const firstComp = compositions[0];
-        console.log('First composition:', firstComp);
-        console.log('Properties of first composition:', Object.getOwnPropertyNames(firstComp));
+        // console.log('First composition:', firstComp);
+        // console.log('Properties of first composition:', Object.getOwnPropertyNames(firstComp));
     }
     
     // Then let's see what properties are actually available
-    console.log('First composition keys:', Object.keys(compositions[0]));
+    // console.log('First composition keys:', Object.keys(compositions[0]));
 
     const composition = compositions.find((c) => c.id === 'MyVideo');
-    console.log('Found MyVideo composition:', composition);
+    // console.log('Found MyVideo composition:', composition);
     
     if (!composition) {
       throw new Error('Composition not found. Available compositions: ' + 
@@ -106,16 +106,16 @@ async function renderVideo(jobId: string) {
 
     const outputPath = path.join(VIDEOS_DIR, `${jobId}.mp4`);
 
-    console.log('Duration:line 89', inputProps.duration);
-    console.log('FPS:line 90', inputProps.fps);
-    console.log('Calculated frames:line 91', Math.round(inputProps.duration * inputProps.fps / 1000));
+    // console.log('Duration:line 89', inputProps.duration);
+    // console.log('FPS:line 90', inputProps.fps);
+    // console.log('Calculated frames:line 91', Math.round(inputProps.duration * inputProps.fps / 1000));
       
-    console.log('Complete inputProps:line 93', JSON.stringify(inputProps, null, 2));
-    console.log('Input Props before render:line 115', {
-      trackItemIds: inputProps.trackItemIds,
-      trackItemsMap: Object.keys(inputProps.trackItemsMap),
-      tracks: JSON.stringify(inputProps.tracks, null, 2),
-    });
+    // console.log('Complete inputProps:line 93', JSON.stringify(inputProps, null, 2));
+    // console.log('Input Props before render:line 115', {
+    //   trackItemIds: inputProps.trackItemIds,
+    //   trackItemsMap: Object.keys(inputProps.trackItemsMap),
+    //   tracks: JSON.stringify(inputProps.tracks, null, 2),
+    // });
 
     // Add validation for required properties
     if (!inputProps.tracks || !Array.isArray(inputProps.tracks)) {
@@ -126,21 +126,21 @@ async function renderVideo(jobId: string) {
       throw new Error('TrackItemsMap must be an object');
     }
 
-    console.log('Final render configuration:', {
-      composition: composition.id,
-      outputPath,
-      inputProps: {
-        trackItemIds: inputProps.trackItemIds?.length,
-        trackItemsMapKeys: Object.keys(inputProps.trackItemsMap),
-        tracksCount: inputProps.tracks?.length,
-        fps: inputProps.fps,
-        size: inputProps.size,
-        duration: inputProps.duration,
-        durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps)),
-        transitionsMap: inputProps.transitionsMap,
-        transitionIds: inputProps.transitionIds
-      }
-    });
+    // console.log('Final render configuration:', {
+    //   composition: composition.id,
+    //   outputPath,
+    //   inputProps: {
+    //     trackItemIds: inputProps.trackItemIds?.length,
+    //     trackItemsMapKeys: Object.keys(inputProps.trackItemsMap),
+    //     tracksCount: inputProps.tracks?.length,
+    //     fps: inputProps.fps,
+    //     size: inputProps.size,
+    //     duration: inputProps.duration,
+    //     durationInFrames: Math.ceil(inputProps.duration / (1000 / inputProps.fps)),
+    //     transitionsMap: inputProps.transitionsMap,
+    //     transitionIds: inputProps.transitionIds
+    //   }
+    // });
 
     await renderMedia({
       composition,
